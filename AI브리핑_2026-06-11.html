@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 주간 브리핑 — 2026년 6월 11일</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      background: #f4f5f7;
+      color: #1a1a2e;
+      line-height: 1.7;
+    }
+
+    /* ── 헤더 ── */
+    .header {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 100%);
+      color: #fff;
+      padding: 40px 24px 32px;
+      text-align: center;
+    }
+    .header .label {
+      display: inline-block;
+      background: #e8a020;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .header .meta {
+      font-size: 13px;
+      color: #a8c4e0;
+    }
+    .header .meta span { margin: 0 8px; }
+
+    /* ── 읽기 안내 바 ── */
+    .reading-bar {
+      background: #fff;
+      border-bottom: 1px solid #e0e4ea;
+      padding: 12px 24px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .reading-bar .tag {
+      font-size: 12px;
+      color: #555;
+      padding: 4px 12px;
+      border: 1px solid #d0d4da;
+      border-radius: 20px;
+    }
+
+    /* ── 본문 래퍼 ── */
+    .wrapper {
+      max-width: 720px;
+      margin: 32px auto;
+      padding: 0 16px 60px;
+    }
+
+    /* ── 섹션 카드 ── */
+    .section {
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 24px;
+      border-bottom: 1px solid #f0f2f5;
+    }
+    .section-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .icon-blue  { background: #e8f0fe; }
+    .icon-green { background: #e6f4ea; }
+    .icon-orange{ background: #fff3e0; }
+    .icon-purple{ background: #f3e8fd; }
+
+    .section-header h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+    .section-num {
+      margin-left: auto;
+      font-size: 11px;
+      color: #aaa;
+      font-weight: 500;
+    }
+
+    /* ── 뉴스 아이템 ── */
+    .news-list { padding: 8px 0; }
+    .news-item {
+      padding: 16px 24px;
+      border-bottom: 1px solid #f4f5f7;
+    }
+    .news-item:last-child { border-bottom: none; }
+
+    .news-item .title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0d1b2a;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .badge-new    { background: #fce8e8; color: #c0392b; }
+    .badge-hot    { background: #fff0d6; color: #d4820a; }
+    .badge-trend  { background: #e8f4fd; color: #1a6fa8; }
+    .badge-policy { background: #edf7ed; color: #2e7d32; }
+
+    .news-item .summary {
+      font-size: 13px;
+      color: #444;
+      margin-bottom: 8px;
+    }
+    .news-item .source {
+      font-size: 11px;
+      color: #999;
+    }
+    .news-item .source a {
+      color: #6c8ebf;
+      text-decoration: none;
+    }
+    .news-item .source a:hover { text-decoration: underline; }
+
+    /* ── 시사점 박스 ── */
+    .insight-box {
+      margin: 0 24px 20px;
+      background: #f8f9ff;
+      border-left: 3px solid #4a7fc1;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #2c3e6b;
+    }
+    .insight-box strong { display: block; font-size: 12px; color: #4a7fc1; margin-bottom: 4px; }
+
+    /* ── 푸터 ── */
+    .footer {
+      text-align: center;
+      color: #aaa;
+      font-size: 11px;
+      padding: 32px 16px 0;
+      border-top: 1px solid #e0e4ea;
+    }
+    .footer p { margin-bottom: 4px; }
+
+    @media (max-width: 480px) {
+      .header h1 { font-size: 20px; }
+      .news-item { padding: 14px 16px; }
+      .section-header { padding: 14px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── 헤더 ── -->
+<div class="header">
+  <div class="label">Weekly AI Briefing</div>
+  <h1>AI 주간 브리핑</h1>
+  <div class="meta">
+    <span>2026년 6월 11일 (목)</span>
+    <span>|</span>
+    <span>기획팀 제공</span>
+    <span>|</span>
+    <span>예상 읽기 시간 약 7분</span>
+  </div>
+</div>
+
+<!-- ── 읽기 안내 ── -->
+<div class="reading-bar">
+  <div class="tag">🔵 AI 핵심 뉴스</div>
+  <div class="tag">🟢 국내 기업 동향</div>
+  <div class="tag">🟠 제조·와이어로프 AI</div>
+  <div class="tag">🟣 AI 매크로 트렌드</div>
+</div>
+
+<div class="wrapper">
+
+  <!-- ── 섹션 1 ── -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-blue">🔵</div>
+      <h2>이번 주 AI 핵심 뉴스</h2>
+      <span class="section-num">3건</span>
+    </div>
+    <div class="news-list">
+
+      <div class="news-item">
+        <div class="title">
+          <span class="badge badge-new">NEW</span>
+          삼성전자, 전 임직원에 ChatGPT·Gemini·Claude 동시 도입
+        </div>
+        <div class="summary">
+          삼성전자가 6월 12일부터 DX(Device eXperience) 부문 직원 전원에게 OpenAI의 ChatGPT, Google의 Gemini Enterprise, Anthropic의 Claude 세 가지 생성형 AI 서비스를 공식 제공하기 시작했습니다. 직원들은 업무 성격에 맞게 AI를 직접 선택해 R&D, 생산, 물류, 마케팅 전 부문에 활용할 수 있습니다.
+        </div>
+        <div class="source">출처: <a href="https://www.koreatimes.co.kr/business/tech-science/20260611/samsung-electronics-to-introduce-chatgpt-gemini-claude-in-operations" target="_blank">Korea Times</a> · 2026.06.11</div>
+      </div>
+
+      <div class="news-item">
+        <div class="title">
+          <span class="badge badge-hot">HOT</span>
+          Claude, 엔터프라이즈 LLM 시장 점유율 32%로 1위 등극
+        </div>
+        <div class="summary">
+          Anthropic의 Claude가 2026년 초 기준 기업용 LLM 시장에서 점유율 32%를 기록하며 1위를 차지했습니다. 반면 Google의 Gemini 3 Pro는 월 6.5억 명 사용자를 확보하며 일반 소비자 사용량 기준으로는 압도적 1위를 유지하고 있어, 기업용과 소비자용 AI 시장이 뚜렷하게 양분되고 있습니다.
+        </div>
+        <div class="source">출처: <a href="https://www.moket.kr/rankings" target="_blank">moket.kr</a> · 2026.06</div>
+      </div>
+
+      <div class="news-item">
+        <div class="title">
+          <span class="badge badge-trend">동향</span>
+          한국 기업 75% "AI 효과 체감"… 그러나 '진짜 강자'는 단 2%
+        </div>
+        <div class="summary">
+          STT GDC 보고서에 따르면 한국 기업의 75%가 AI 도입 후 ROI(투자 대비 성과)를 체감했다고 응답했습니다. 그러나 AI를 전략적으로 내재화해 경쟁우위를 확보한 기업은 전체의 2%에 불과했습니다. AI를 '도구'로만 쓰는 단계를 넘어 조직 역량으로 전환하는 것이 핵심 과제로 지목됩니다.
+        </div>
+        <div class="source">출처: <a href="https://zdnet.co.kr/view/?no=20260527204728" target="_blank">ZDNet Korea</a> · 2026.05.27</div>
+      </div>
+
+    </div>
+    <div class="insight-box">
+      <strong>📌 시사점</strong>
+      생성형 AI가 대기업 업무 현장에 본격 침투했습니다. 삼성의 사례처럼 하나의 AI가 아닌 여러 AI를 '상황에 맞게' 선택하는 멀티 AI 전략이 기업 표준이 되고 있습니다.
+    </div>
+  </div>
+
+  <!-- ── 섹션 2 ── -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-green">🟢</div>
+      <h2>국내 기업 AI 도입 동향</h2>
+      <span class="section-num">3건</span>
+    </div>
+    <div class="news-list">
+
+      <div class="news-item">
+        <div class="title">
+          <span class="badge badge-hot">HOT</span>
+          젠슨 황 방한… SK·현대차·LG·두산, 엔비디아와 AI 동맹 확대
+        </div>
+        <div class="summary">
+          엔비디아 CEO 젠슨 황이 6월 방한해 국내 주요 대기업 총수들과 잇달아 회동했습니다. SK하이닉스는 HBM 공급을 넘어 AI 팩토리 공동 구축을 협의했고, 현대차는 엔비디아 블랙웰 GPU 5만 개 기반의 AI 팩토리로 자율주행·스마트팩토리 AI 모델을 학습할 계획입니다. LG는 가전·로봇·모빌리티 분야에서 엔비디아 플랫폼과 협력 범위를 넓혔습니다.
+        </div>
+        <div class="source">출처: <a href="https://nwww.newsis.com/view/NISX20260608_0003660778" target="_blank">뉴시스</a> · 2026.06.08</div>
+      </div>
+
+      <div class="news-item">
+        <div class="title">
+          <span class="badge badge-new">NEW</span>
+          현대차, 새만금에 9조 원 투자… AI 데이터센터·로봇·수소 복합단지
+        </div>
+        <div class="summary">
+          현대차가 새만금 지구에 AI 데이터센터(5.8조 원), 로봇, 수소 설비를 포함한 총 9조 원 규모의 복합 투자를 공식 발표했습니다. 자체 AI 인프라를 확보해 SDV(소프트웨어 정의 차량), 피지컬 AI, 스마트팩토리를 통합 운영하는 '제조-AI 수직 계열화' 모델을 목표로 합니다.
+        </div>
+        <div class="source">출처: <a href="https://ziin.ai/posts/2026-06-09-jensen-huang-korea-ai-h2-outlook" target="_blank">Ziin AI</a> · 2026.06.09</div>
+      </div>
+
+      <div class="news-item">
+        <div class="title">
+          <span class="badge badge-trend">동향</span>
+          중소벤처기업부, AI 스마트공장 450곳 구축에 전년比 80% 증액 투자
+        </div>
+        <div class="summary">
+          정부가 2026년 스마트 제조혁신 지원사업을 통해 AI 스마트공장 450개 사 구축을 지원합니다. 자율형공장 30개사, 제조 AI 특화 스마트공장 400개사가 대상이며, 불량 검출·실시간 공정 제어 자동화가 핵심입니다. 중소 제조기업도 신청 가능하며, 철강·뿌리 산업에는 가산점이 부여됩니다.
+        </div>
+        <div class="source">출처: <a href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000115998" target="_blank">bizinfo.go.kr</a> · 2026</div>
+      </div>
+
+    </div>
+    <div class="insight-box">
+      <strong>📌 시사점</strong>
+      AI 투자가 대기업에서 중소 제조업으로 확산되고 있습니다. 정부 지원 프로그램이 확대되는 지금이 AI 스마트공장 도입을 검토하기 좋은 시점입니다.
+    </div>
+  </div>
+
+  <!-- ── 섹션 3 ── -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-orange">🟠</div>
+      <h2>제조·와이어로프 분야 AI</h2>
+      <span class="section-num">2건</span>
+    </div>
+    <div class="news-list">
+
+      <div class="news-item">
+        <div class="title">
+          <span class="badge badge-hot">HOT</span>
+          철강업계 AI 도입 가속… 품질 검사·수율·에너지 효율 3대 영역 집중
+        </div>
+        <div class="summary">
+          스틸데일리 보고서에 따르면 글로벌 철강업계가 AI를 품질 자동 검사, 수율 최적화, 에너지 효율 개선 세 가지 영역에 집중 도입하고 있습니다. 특히 AI 기반 표면 결함 검출 시스템은 기존 육안 검사 대비 불량 검출률을 획기적으로 높이고 있으며, 탄소 배출 데이터 관리와 EU 탄소국경세(CBAM) 대응 도구로도 활용 범위가 넓어지고 있습니다. 와이어로프 등 선재·봉강 제품도 동일한 흐름 속에 있습니다.
+        </div>
+        <div class="source">출처: <a href="https://www.steeldaily.co.kr/news/articleView.html?idxno=194941" target="_blank">스틸데일리</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="title">
+          <span class="badge badge-policy">정책</span>
+          K-AX 정책으로 중소 철강 기업도 AI 예지 보전 시스템 구축 가능
+        </div>
+        <div class="summary">
+          정부의 K-AX(한국형 AI 대전환) 정책은 중소 철강·소재 기업을 주요 수혜 대상으로 포함합니다. 설비 이상 징후를 사전에 감지하는 '예지 보전(Predictive Maintenance)' 시스템과 AI 기반 공정 이상 감지 솔루션에 최대 수억 원의 구축 비용을 지원받을 수 있습니다. 와이어로프 생산 공정의 꼬임·장력·표면 이상 감지에도 적용 가능합니다.
+        </div>
+        <div class="source">출처: <a href="https://a.youmydream.com/2026/04/ai-2026-k-ax.html" target="_blank">K-AX 정책 안내</a> · 2026.04</div>
+      </div>
+
+    </div>
+    <div class="insight-box">
+      <strong>📌 시사점</strong>
+      와이어로프 제조 공정—스트랜딩, 클로징, 표면 처리—에 AI 비전 검사와 예지 보전을 도입하는 사례가 철강 업종 전반에 확산 중입니다. 정부 보조금을 활용하면 초기 투자 부담을 크게 낮출 수 있습니다.
+    </div>
+  </div>
+
+  <!-- ── 섹션 4 ── -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-purple">🟣</div>
+      <h2>AI 매크로 트렌드</h2>
+      <span class="section-num">2건</span>
+    </div>
+    <div class="news-list">
+
+      <div class="news-item">
+        <div class="title">
+          <span class="badge badge-new">NEW</span>
+          미국, 초당적 'AI 대법안' 초안 공개… 프런티어 개발사 감사·주정부 규제 3년 동결
+        </div>
+        <div class="summary">
+          미국 의회가 대형 AI 개발사(OpenAI·Google·Anthropic 등)에 6개월 주기 안전 감사를 의무화하고, 반대로 각 주(州)의 AI 독자 규제는 3년간 동결하는 내용의 초당적 AI 법안 초안을 공개했습니다. AI 혁신 속도는 유지하되 연방 차원의 통일된 안전 기준을 마련하려는 의도로, 한국 AI 기본법 시행령 논의에도 영향을 줄 전망입니다.
+        </div>
+        <div class="source">출처: <a href="https://zdnet.co.kr/view/?no=20260608145541" target="_blank">ZDNet Korea</a> · 2026.06.08</div>
+      </div>
+
+      <div class="news-item">
+        <div class="title">
+          <span class="badge badge-trend">동향</span>
+          2026년 AI 기술 3대 축: 추론형 AI·합성 데이터·멀티모달
+        </div>
+        <div class="summary">
+          한국지능정보원과 딜로이트 보고서가 공통적으로 꼽은 2026년 AI 핵심 트렌드는 ① 복잡한 문제를 스스로 해결하는 추론형 AI(Reasoning AI) ② 실제 데이터 부족을 보완하는 합성 데이터 ③ 텍스트·이미지·음성을 동시에 처리하는 멀티모달 AI입니다. 제조업에서는 이 세 기술이 결합된 '설비 이상 자동 진단' 솔루션이 빠르게 등장하고 있습니다.
+        </div>
+        <div class="source">출처: <a href="https://zdnet.co.kr/view/?no=20251229161240" target="_blank">ZDNet Korea</a> · 2025.12.29</div>
+      </div>
+
+    </div>
+    <div class="insight-box">
+      <strong>📌 시사점</strong>
+      AI 규제가 글로벌 공통 기준으로 수렴되고 있습니다. 수출 비중이 있는 기업이라면 EU AI Act·미국 연방 AI법 동향을 미리 파악해 두는 것이 중요합니다.
+    </div>
+  </div>
+
+</div><!-- /wrapper -->
+
+<!-- ── 푸터 ── -->
+<div class="footer">
+  <p>본 브리핑은 공개된 뉴스 및 보고서를 기반으로 기획팀이 정리한 내용입니다.</p>
+  <p>문의: 기획팀 | 발행일: 2026년 6월 11일</p>
+  <p style="margin-top:12px; color:#ccc;">© 2026 AI 주간 브리핑</p>
+</div>
+
+</body>
+</html>
