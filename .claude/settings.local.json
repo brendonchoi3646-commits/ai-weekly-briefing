@@ -7,5 +7,21 @@
       "PowerShell(winget install --id GitHub.cli --silent --accept-package-agreements --accept-source-agreements)",
       "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"User\"\\); gh --version)"
     ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .claude\\hooks\\auto-commit.ps1",
+            "shell": "powershell",
+            "timeout": 30,
+            "statusMessage": "변경사항 자동 커밋 중..."
+          }
+        ]
+      }
+    ]
   }
 }
